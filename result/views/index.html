@@ -1,31 +1,86 @@
 <!DOCTYPE html>
-<html ng-app="catsvsdogs">
+<html ng-app="ukvsusa">
   <head>
     <meta charset="utf-8">
-    <title>Cats vs Dogs -- Result</title>
+    <title>UK vs USA -- Result</title>
     <base href="/index.html">
-    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="docker-compose, docker, stack">
     <meta name="author" content="Docker">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: #fff;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      #content-container {
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        padding: 40px;
+        width: 400px;
+        text-align: center;
+      }
+
+      .choice {
+        display: inline-block;
+        width: 45%;
+        padding: 20px;
+        border-radius: 12px;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .choice.uk {
+        background-color: #ff6f61;
+      }
+
+      .choice.usa {
+        background-color: #4CAF50;
+      }
+
+      .divider {
+        display: inline-block;
+        width: 5%;
+      }
+
+      .label {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      #background-stats-1, #background-stats-2 {
+        display: none;
+      }
+    </style>
   </head>
-  <body ng-controller="statsCtrl" >
-     <div id="background-stats">
-       <div id="background-stats-1">
-       </div><!--
-      --><div id="background-stats-2">
-      </div>
-    </div>
+  <body ng-controller="statsCtrl">
     <div id="content-container">
       <div id="content-container-center">
         <div id="choice">
-          <div class="choice cats">
-            <div class="label">Cats</div>
+          <div class="choice uk">
+            <div class="label">UK</div>
             <div class="stat">{{aPercent | number:1}}%</div>
           </div>
           <div class="divider"></div>
-          <div class="choice dogs">
-            <div class="label">Dogs</div>
+          <div class="choice usa">
+            <div class="label">USA</div>
             <div class="stat">{{bPercent | number:1}}%</div>
           </div>
         </div>
